@@ -12,7 +12,7 @@ const style = {
     accentedButton: ` relative text-lg font-semibold px-6 py-4 bg-purple-700 rounded-lg mr-5 text-white hover:bg-[#42a0ff] `,
     button: ` relative text-lg font-semibold px-6 py-4 bg-[#FFFFFF] rounded-lg  border-2 border-purple-300 mr-5 text-[#2081E2] hover:shadow-xl `,
 
-    cardContainer: `rounded-[3rem]`,
+    cardContainer: `rounded-[3rem] w-[20rem]`,
     infoContainer: `h-20 bg-[#313338] p-4 rounded-b-lg flex items-center text-white`,
     author: `flex flex-col justify-center ml-4`,
     name: ``,
