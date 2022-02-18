@@ -48,7 +48,7 @@ const Hero = () => {
                              
                                 <img
                                     className="h-[2.25rem] rounded-full"
-                                    src="/face.jpg"
+                                    src="/face.JPG"
                                     alt=""
                                 /> 
                                 <div className={style.author}>
