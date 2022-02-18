@@ -2,7 +2,7 @@ import React from "react"
 
 const style = {
     wrapper: `relative`,
-    container: `before:content-[''] before:bg-red-500 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[url('https://lh3.googleusercontent.com/ujepnqpnL0nDQIHsWxlCXzyw4pf01yjz1Jmb4kAQHumJAPrSEj0-e3ABMZlZ1HEpJoqwOcY_kgnuJGzfXbd2Tijri66GXUtfN2MXQA=s250')] before:bg-cover before:bg-center before:opacity-30 before:blur`,
+    container: `before:content-[''] before:bg-red-500 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[url('/Brian1.jpeg')] before:bg-cover before:bg-center before:opacity-30 before:blur`,
     contentWrapper: `flex h-screen relative justify-center flex-wrap items-center space-y-9`,
     copyContainer: `w-1/2 justify-center`,
     title: ` flex text-white text-[28px] font-semibold text-center`,
@@ -41,14 +41,14 @@ const Hero = () => {
                     <div className={style.cardContainer}>
                         <img 
                             className="rounded-t-lg"
-                            src="https://lh3.googleusercontent.com/ujepnqpnL0nDQIHsWxlCXzyw4pf01yjz1Jmb4kAQHumJAPrSEj0-e3ABMZlZ1HEpJoqwOcY_kgnuJGzfXbd2Tijri66GXUtfN2MXQA=s550"
+                            src="/Brian1.jpeg"
                             alt=""
                         />
                         <div className={style.infoContainer}>
                              
                                 <img
                                     className="h-[2.25rem] rounded-full"
-                                    src="https://lh3.googleusercontent.com/qQj55gGIWmT1EnMmGQBNUpIaj0qTyg4YZSQ2ymJVvwr_mXXjuFiHJG9d3MRgj5DVgyLa69u8Tq9ijSm_stsph8YmIJlJQ1e7n6xj=s64"
+                                    src="/face.jpg"
                                     alt=""
                                 /> 
                                 <div className={style.author}>
