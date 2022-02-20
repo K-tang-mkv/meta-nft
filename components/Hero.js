@@ -41,7 +41,7 @@ const Hero = () => {
                     <div className={style.cardContainer}>
                         <img 
                             className="rounded-t-lg"
-                            src="/Brian1.jpeg"
+                            src="/cole.png"
                             alt=""
                         />
                         <div className={style.infoContainer}>
