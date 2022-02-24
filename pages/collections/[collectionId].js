@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import { ThirdwebWeb3Provider, useWeb3 } from "@3rdweb/hooks";
+import { ThirdwebSDK } from "@3rdweb/sdk"
+import { client } from "../../lib/sanityClient"
 
+import Header from "../../components/Header"
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -27,7 +30,7 @@ const style = {
 
 const Collection = () => {
     const router = useRouter();
-    const {provider} = useProvider();
+    const {provider} = useWeb3();
     const { collectionId } = router.query;
     const [collection, setCollection] = useState({});
     const [nfts, setNfts] = useState([]);
@@ -64,10 +67,69 @@ const Collection = () => {
             "https://eth-rinkeby.alchemyapi.io/v2/2K9XuRD7CyYKLx8_IpWgnlDbSJcXEpf0"
         )
         return sdk.getMarketplaceModule(
-            ""
-        )
-    })
-    return <div>fuck</div>
+            "0x3809992B0f3DE894fEb7616fE416664c1C721541"
+        );
+    }, [provider])
+
+    // get all listings in the collections
+    useEffect(() => {
+        if (!marketPlaceModule) return;
+        ;(async () => {
+            setListings(await marketPlaceModule.getAllListings())
+        })()
+    }, [marketPlaceModule])
+
+    const fetchCollectionData = async (sanityClient = client) => {
+        const query = `*[_type == "marketItems" && contractAddress == "0xBc9e3870b1fe27Db07D1b13414F46f454D3Fa5E8"] {
+            "imageUrl": profileImage.asset->url,
+            "bannerImageUrl": bannerImage.asset->url,
+            volumeTraded,
+            createdBy,
+            contractAddress,
+            "creator": createdBy->userName,
+            title, floorPrice,
+            "allOwners": owners[]->,
+            description
+        }`
+
+        const collectionData = await sanityClient.fetch(query);
+        console.log(collectionData)
+        await setCollection(collectionData[0]);
+    }
+
+    useEffect(() => {
+        fetchCollectionData();
+
+    }, [collectionId])
+
+    return (
+        <div className="overflow-hidden">
+            <Header />
+            <div className={style.bannerImageContainer}>
+                <img 
+                    className={style.bannerImage}
+                    src={
+                        collection?.bannerImageUrl
+                        ? collection.bannerImageUrl : 
+                        "https://via.placeholder.com/200"}
+                />
+
+            </div>
+            <div className={style.infoContainer}>
+                <div className={style.midRow}>
+                    <img 
+                        className={style.profileImg}
+                        src={
+                            collection?.imageUrl
+                            ? collection.imageUrl :
+                            "https://via.placeholder.com/200"
+                        }
+                    />
+                </div>
+                
+            </div>
+        </div>
+    )
 }
 
 export default Collection;

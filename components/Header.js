@@ -39,7 +39,7 @@ export default function Header() {
                 </input>
            </div>
            <div className={style.headerItems}>
-               <Link href="/collections/12">
+               <Link href="/collections/0xBc9e3870b1fe27Db07D1b13414F46f454D3Fa5E8">
                     <div className={style.headerItem}>Collections</div>
                </Link>
                
