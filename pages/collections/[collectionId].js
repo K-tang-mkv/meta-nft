@@ -7,7 +7,7 @@ import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { HiDotsVertical } from "react-icons/hi";
 
 import { client } from "../../lib/sanityClient"
-
+import NFTCard from "../../components/NFTCard";
 import Header from "../../components/Header"
 
 const style = {
@@ -203,7 +203,16 @@ const Collection = () => {
         <div className={style.midRow}>
           <div className={style.description}>{collection?.description}</div>
         </div>
-        
+        <div className="flex flex-wrap ">
+        {nfts.map((nftItem, id) => (
+          <NFTCard
+            key={id}
+            nftItem={nftItem}
+            title={collection?.title}
+            listings={listings}
+          />
+        ))}
+      </div>
       </div>
      
         
