@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import { ThirdwebWeb3Provider, useWeb3 } from "@3rdweb/hooks";
-import { ThirdwebSDK } from "@3rdweb/sdk"
+import { ThirdwebSDK } from "@3rdweb/sdk";
+import { CgWebsite } from "react-icons/cg";
+import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { HiDotsVertical } from "react-icons/hi";
+
 import { client } from "../../lib/sanityClient"
 
 import Header from "../../components/Header"
@@ -128,7 +132,81 @@ const Collection = () => {
                 </div>
                 
             </div>
+            <div className={style.endRow}>
+                <div className={style.socialIconsContainer}>
+                    <div className={style.socialIconsWrapper}>
+                        <div className={style.socialIconsContent}>
+                            <div className={style.socialIcon}>
+                                <CgWebsite />
+                            </div>
+                            <div className={style.divider} />
+                            <div className={style.socialIcon}>
+                                <AiOutlineInstagram />
+                            </div>
+                            <div className={style.divider} />
+                            <div className={style.socialIcon}>
+                                <AiOutlineTwitter />
+                            </div>
+                            <div className={style.divider} />
+                            <div className={style.socialIcon}>
+                                <HiDotsVertical />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={style.midRow}>
+                <div className={style.title}>{collection?.title}</div>
+            </div>
+            <div className={style.midRow}>
+                <div className={style.createdBy}>
+                    Created By {' '}
+                    <span className="text-purple-100">{collection?.creator}</span>
+                </div>
+            </div>
+            <div className={style.midRow}>
+          <div className={style.statsContainer}>
+            <div className={style.collectionStat}>
+              <div className={style.statValue}>{nfts.length}</div>
+              <div className={style.statName}>items</div>
+            </div>
+            <div className={style.collectionStat}>
+              <div className={style.statValue}>
+                {collection?.allOwners ? collection.allOwners.length : ''}
+              </div>
+              <div className={style.statName}>owners</div>
+            </div>
+            <div className={style.collectionStat}>
+              <div className={style.statValue}>
+                <img
+                  src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                  alt="eth"
+                  className={style.ethLogo}
+                />
+                {collection?.floorPrice}
+              </div>
+              <div className={style.statName}>floor price</div>
+            </div>
+            <div className={style.collectionStat}>
+              <div className={style.statValue}>
+                <img
+                  src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                  alt="eth"
+                  className={style.ethLogo}
+                />
+                {collection?.volumeTraded}.5K
+              </div>
+              <div className={style.statName}>volume traded</div>
+            </div>
+          </div>
         </div>
+        <div className={style.midRow}>
+          <div className={style.description}>{collection?.description}</div>
+        </div>
+        
+      </div>
+     
+        
     )
 }
 
