@@ -1,5 +1,6 @@
 import { BsFillCartFill } from 'react-icons/bs'
 
+
 const style = {
   eventItem: `flex px-4 py-5 font-medium`,
   event: `flex items-center`,
