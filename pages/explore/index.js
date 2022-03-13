@@ -1,8 +1,9 @@
 import Header from "../../components/Header"
 
 const style = {
-    wrapper: `flex items-center justify-center h-screen w-screen`,
-    heading: `h-1/2 text-[#FFFFFF] font-sans text-5xl`
+    wrapper: `flex flex-col justify-items-center grid`,
+    heading: `h-[10rem] w-full justify-items-center grid text-[#FFFFFF] font-sans text-[2rem]`,
+    navigator: ` w-full text-[#FFFFFF] flex justify-around`
 }
 export default function Exporle() {
     return (
@@ -10,16 +11,15 @@ export default function Exporle() {
             <Header />
             <div className={style.wrapper}>
                 <div className={style.heading}>
-                    Exporle Collections
-                </div>
-                <div >
-                    <ul className="flex">
-                        <li>Trending</li>
-                        <li>Top</li>
-                        <li>Art</li>
-                    </ul>
+                    <h1 className="mt-6 mb-6">Exporle Collections</h1>
                 </div>
 
+                <ul className={style.navigator}>
+                    <li className="">Trending</li>
+                    <li>Top</li>
+                    <li>Art</li>
+                </ul>
+            
             </div>
         </div>
         
