@@ -1,5 +1,5 @@
 import React from "react"
-
+import Link from "next/link"
 const style = {
     wrapper: `relative`,
     container: `before:content-[''] before:bg-red-500 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[url('/Brian1.jpeg')] before:bg-cover before:bg-center before:opacity-30 before:blur`,
@@ -32,7 +32,10 @@ const Hero = () => {
                             OpenSea is the world&apos;s first and largest market
                         </div>
                         <div className={style.ctaContainer}>
-                            <button className={style.accentedButton}>Explore</button>
+                            <Link href="/explore">
+                                <button className={style.accentedButton}>Explore</button>
+                            </Link>
+                            
                             <button className={style.button}>Create</button>
                         </div>
                         
